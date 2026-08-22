@@ -1,6 +1,6 @@
-# [Project name]
+# Razorpay Pulse AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Explainable payments intelligence for merchants to understand failures, reduce fraud, and recover revenue.
 
 ## Run & Operate
 
@@ -22,15 +22,20 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/razorpay-pulse-ai` — responsive React/Vite merchant dashboard
+- `artifacts/api-server/src/routes/pulse.ts` — analytics and copilot API
+- `lib/api-spec/openapi.yaml` — source-of-truth API contract
+- `artifacts/razorpay-pulse-ai/src/index.css` — product theme and visual tokens
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The dashboard uses typed OpenAPI-generated hooks so UI and server payloads stay aligned.
+- Demo analytics are deterministic and exposed through the same endpoints planned for model-backed scoring.
+- The visual language uses a dark command-center surface with signal teal and amber to distinguish health from leakage.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Merchants can monitor approval health, inspect payment and fraud risk signals, review alerts, ask a grounded copilot for recommendations, and model recovered revenue from lower failure rates.
 
 ## User preferences
 

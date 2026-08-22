@@ -1,0 +1,154 @@
+# Build Razorpay Pulse AI
+
+Build a production-ready AI web application called **Razorpay Pulse AI**.
+
+The goal is to build an explainable payments intelligence platform that helps merchants reduce payment failures and fraud.
+
+## Requirements
+
+This must be original work built specifically for this challenge.
+
+Deploy the complete project.
+
+Tech Stack:
+
+* Next.js
+* FastAPI
+* Python
+* XGBoost
+* SHAP
+* PostgreSQL
+* Recharts
+* OpenAI or Gemini
+* Vercel deployment
+
+## Features
+
+### 1. Upload Transactions
+
+Allow CSV upload.
+
+Sample columns:
+
+* transaction_id
+* amount
+* payment_method
+* bank
+* merchant_category
+* hour
+* device
+* retry_count
+* location
+* customer_age
+* transaction_status
+
+### 2. Fraud Prediction
+
+Train an XGBoost model.
+
+Return:
+
+* Fraud probability
+* Safe / Suspicious / Fraud label
+
+### 3. Payment Failure Prediction
+
+Predict transaction failure probability.
+
+Highlight:
+
+* risky banks
+* risky hours
+* payment methods causing failures
+
+### 4. SHAP Explainability
+
+Every prediction must include feature explanations.
+
+Example:
+
+High Risk because:
+
+* new device
+* multiple retries
+* high transaction amount
+
+Visualize SHAP values.
+
+### 5. Merchant Dashboard
+
+Build a modern dashboard showing:
+
+* Approval Rate
+* Failure Rate
+* Fraud Risk
+* Revenue Leakage
+* Chargeback Risk
+
+Include:
+
+* line charts
+* heatmaps
+* bank-wise success rates
+* payment-method distribution
+
+### 6. AI Merchant Copilot
+
+Add a chat assistant.
+
+The assistant must answer questions using dashboard metrics.
+
+Examples:
+
+* Why did failures increase yesterday?
+* Which payment method is hurting revenue?
+* What should I optimize first?
+
+Use Retrieval-Augmented Generation over computed analytics.
+
+### 7. Revenue Leakage Simulator
+
+Add sliders.
+
+Example:
+
+Reduce failures by 2%.
+
+Display recovered monthly revenue instantly.
+
+### 8. Smart Alerts
+
+Generate AI alerts for:
+
+* fraud spikes
+* unusual payment failures
+* bank outage patterns
+* retry anomalies
+
+### 9. Beautiful UI
+
+Use:
+
+* dark fintech theme
+* Razorpay-inspired blue accents
+* responsive design
+* smooth animations
+* glassmorphism cards
+
+### 10. Deployment
+
+Deploy:
+
+* Frontend on Vercel
+* Backend on Render
+
+Provide:
+
+* live URL
+* GitHub repository
+* README
+* architecture diagram
+* sample dataset
+* API documentation
+
+The application should feel like a real internal Razorpay product rather than a student project.

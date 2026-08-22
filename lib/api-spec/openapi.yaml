@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: pulse
+    description: Payments intelligence operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,96 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /pulse/overview:
+    get:
+      operationId: getPulseOverview
+      tags: [pulse]
+      summary: Get payments intelligence overview
+      responses:
+        "200":
+          description: Dashboard overview
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PulseOverview"
+  /pulse/trends:
+    get:
+      operationId: getPulseTrends
+      tags: [pulse]
+      summary: Get payment trends
+      responses:
+        "200":
+          description: Daily payment trends
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TrendPoint"
+  /pulse/risk-drivers:
+    get:
+      operationId: getPulseRiskDrivers
+      tags: [pulse]
+      summary: Get explainable risk drivers
+      responses:
+        "200":
+          description: Risk drivers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RiskDriver"
+  /pulse/alerts:
+    get:
+      operationId: getPulseAlerts
+      tags: [pulse]
+      summary: Get smart alerts
+      responses:
+        "200":
+          description: Smart alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PulseAlert"
+  /pulse/copilot:
+    post:
+      operationId: askPulseCopilot
+      tags: [pulse]
+      summary: Ask the merchant copilot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CopilotQuestion"
+      responses:
+        "200":
+          description: Copilot response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CopilotAnswer"
+  /pulse/simulate:
+    post:
+      operationId: simulatePulseRecovery
+      tags: [pulse]
+      summary: Simulate recovered revenue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulationInput"
+      responses:
+        "200":
+          description: Simulation result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationResult"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +125,68 @@ components:
           type: string
       required:
         - status
+    PulseOverview:
+      type: object
+      required: [volume, approvalRate, failureRate, fraudRisk, revenueLeakage, chargebackRisk, totalRevenue]
+      properties:
+        volume: { type: number }
+        approvalRate: { type: number }
+        failureRate: { type: number }
+        fraudRisk: { type: number }
+        revenueLeakage: { type: number }
+        chargebackRisk: { type: number }
+        totalRevenue: { type: number }
+        successfulRevenue: { type: number }
+        periodLabel: { type: string }
+    TrendPoint:
+      type: object
+      required: [label, approvalRate, failureRate, revenue]
+      properties:
+        label: { type: string }
+        approvalRate: { type: number }
+        failureRate: { type: number }
+        revenue: { type: number }
+    RiskDriver:
+      type: object
+      required: [feature, impact, direction, explanation]
+      properties:
+        feature: { type: string }
+        impact: { type: number }
+        direction: { type: string, enum: [up, down] }
+        explanation: { type: string }
+    PulseAlert:
+      type: object
+      required: [id, severity, title, detail, timestamp, category]
+      properties:
+        id: { type: string }
+        severity: { type: string, enum: [critical, warning, info] }
+        title: { type: string }
+        detail: { type: string }
+        timestamp: { type: string }
+        category: { type: string }
+    CopilotQuestion:
+      type: object
+      required: [question]
+      properties:
+        question: { type: string, minLength: 1 }
+    CopilotAnswer:
+      type: object
+      required: [answer, sources]
+      properties:
+        answer: { type: string }
+        sources:
+          type: array
+          items: { type: string }
+    SimulationInput:
+      type: object
+      required: [failureReduction]
+      properties:
+        failureReduction: { type: number, minimum: 0, maximum: 20 }
+    SimulationResult:
+      type: object
+      required: [failureReduction, recoveredMonthlyRevenue, recoveredAnnualRevenue]
+      properties:
+        failureReduction: { type: number }
+        recoveredMonthlyRevenue: { type: number }
+        recoveredAnnualRevenue: { type: number }
 

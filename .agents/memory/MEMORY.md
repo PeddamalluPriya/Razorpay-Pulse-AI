@@ -1,0 +1,1 @@
+- [Pulse analytics contract](pulse-analytics-contract.md) — keep demo analytics behind typed endpoints so model-backed scoring can replace them without UI redesign.

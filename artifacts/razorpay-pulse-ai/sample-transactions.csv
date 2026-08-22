@@ -1,0 +1,6 @@
+transaction_id,amount,payment_method,bank,merchant_category,hour,device,retry_count,location,customer_age,transaction_status
+txn_1001,2499,upi,HDFC Bank,Electronics,14,known,0,Bengaluru,31,success
+txn_1002,18500,card,ICICI Bank,Travel,2,new,3,Mumbai,26,failed
+txn_1003,799,netbanking,Axis Bank,Food,20,known,1,Delhi,39,success
+txn_1004,42000,card,HDFC Bank,Luxury,3,new,4,Hyderabad,24,failed
+txn_1005,1299,upi,SBI,Subscriptions,11,known,0,Pune,29,success

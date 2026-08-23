@@ -1,0 +1,510 @@
+Replit Upgrade Prompt (Copy-Paste)
+
+Modify the existing Razorpay Pulse AI project. Do not rebuild or replace the current application. Preserve all existing functionality (fraud prediction, payment failure prediction, SHAP explanations, dashboard, AI Copilot, alerts, simulator, and deployment). Upgrade the product to feel like a real internal Razorpay prototype with a premium fintech experience.
+
+1. Fix the Login Flow (Highest Priority)
+
+Current issues:
+
+OTP flow should not return to the mobile number page.
+
+Remove hardcoded user details like Arjun Mehta.
+
+Remove static October 2024 dates.
+
+Implement a proper multi-step authentication flow.
+
+Flow:
+
+Enter mobile number.
+
+Enter OTP (demo OTP: 123456).
+
+OTP verification succeeds.
+
+Redirect to a personalized dashboard.
+
+Persist login using localStorage.
+
+Add Logout.
+
+Use React state instead of resetting the form.
+
+2. Dynamic User Profiles
+
+Replace hardcoded data with realistic demo users.
+
+Mobile
+
+	
+
+Name
+
+	
+
+Business
+
+
+
+
+9876543210
+
+	
+
+Priya Peddamallu
+
+	
+
+Fashion Merchant
+
+
+
+
+9123456789
+
+	
+
+Rahul Sharma
+
+	
+
+Electronics Store
+
+
+
+
+9000000001
+
+	
+
+Sneha Reddy
+
+	
+
+Restaurant
+
+After login display:
+
+Welcome back, 👋
+
+Also show:
+
+Business name
+
+Last synced: "Today"
+
+Dynamic current date
+
+No fixed years.
+
+3. AI Scanning Animation
+
+Before opening the dashboard, show a 4-second premium loading experience.
+
+Text:
+
+Analyzing your payment ecosystem...
+
+Animated checklist:
+
+Importing transactions
+
+Detecting merchants
+
+Running fraud analysis
+
+Predicting payment failures
+
+Calculating Pulse Score
+
+Generating AI insights
+
+Then fade into the dashboard.
+
+4. Modern Dashboard (Pulse Command Center)
+
+Rename the dashboard internally to:
+
+Pulse Command Center
+
+Improve the layout with:
+
+Glassmorphism KPI cards
+
+Dark navy theme
+
+Razorpay blue glow
+
+Smooth counter animations
+
+Top KPIs:
+
+Approval Rate
+
+Failure Rate
+
+Fraud Risk
+
+Revenue Leakage
+
+Chargeback Risk
+
+Merchant Pulse Score
+
+5. Merchant Pulse Score
+
+Add a new animated circular gauge.
+
+Score: 0–100
+
+Calculate using:
+
+approval rate
+
+fraud rate
+
+retry success
+
+chargeback risk
+
+payment failures
+
+Display:
+
+Better than 72% of similar merchants.
+
+Animate the score when the dashboard loads.
+
+6. Live Incident Mode
+
+Add a live operations banner.
+
+Example:
+
+🚨 LIVE INCIDENT DETECTED
+
+"HDFC UPI failure rate increased by 34%."
+
+Display:
+
+affected bank
+
+payment method
+
+confidence
+
+estimated revenue loss/hour
+
+Button:
+
+View Incident
+
+Open a side panel showing:
+
+live trend graph
+
+impacted merchants
+
+AI explanation
+
+recommended actions
+
+Refresh demo data every 10 seconds.
+
+7. AI Action Center
+
+Replace static recommendations with interactive cards.
+
+Example:
+
+Enable Smart Retry
+
+Expected recovery: ₹1.8L/month
+
+Confidence: 94%
+
+Button:
+
+Simulate Impact
+
+When clicked:
+
+approval rate increases
+
+revenue leakage decreases
+
+Pulse Score improves
+
+charts animate
+
+Add additional actions:
+
+Route UPI traffic
+
+Reduce fraud threshold
+
+Prioritize high-performing payment methods
+
+8. Explain This Spike
+
+Make charts interactive.
+
+When clicking a spike: Open an AI explanation drawer.
+
+Example:
+
+Payment failures increased because HDFC UPI transactions declined 27% above average during peak traffic.
+
+Include:
+
+root cause
+
+confidence
+
+affected payment method
+
+recommended action
+
+Animate the drawer smoothly.
+
+9. Smart Alerts Timeline
+
+Create a live event feed.
+
+Examples:
+
+Fraud spike detected
+
+Smart Retry recommended
+
+Success rate recovered
+
+Bank outage suspected
+
+Show newest events first with elegant icons.
+
+10. Dynamic Dates Everywhere
+
+Remove all references to 2024.
+
+Generate:
+
+Today
+
+Yesterday
+
+Last 7 Days
+
+This Month
+
+Recent transactions should always look current.
+
+11. Demo Dataset Experience
+
+Keep CSV upload.
+
+Add a new button:
+
+Try Sample Razorpay Data
+
+One click should:
+
+load realistic transactions
+
+populate all charts
+
+activate alerts
+
+generate AI insights
+
+calculate Pulse Score
+
+Recruiters should never need their own CSV.
+
+12. Credit Card Intelligence (Major Differentiator)
+
+Add a new section:
+
+Credit Card Intelligence
+
+Inspired by CRED.
+
+This is a demo card linking experience, not a real bank integration.
+
+Users can add demo cards:
+
+Visa
+
+Mastercard
+
+RuPay
+
+Amex
+
+Dashboard
+
+Show:
+
+Credit Limit
+
+Outstanding Amount
+
+Available Credit
+
+Due Date
+
+Minimum Due
+
+Reward Points
+
+Active EMIs
+
+Credit Utilization Gauge
+
+Animated meter:
+
+Green (0–30%)
+
+Blue (31–50%)
+
+Orange (51–75%)
+
+Red (75%+)
+
+AI recommendation example:
+
+Paying ₹18,000 before your statement date would reduce utilization below 30%.
+
+EMI Tracker
+
+Show:
+
+monthly payment
+
+remaining months
+
+total interest
+
+Reward Optimizer
+
+Display:
+
+available points
+
+cashback value
+
+travel value
+
+Recommend the best redemption.
+
+Best Card Recommendation
+
+For merchants like Swiggy, Amazon, Uber:
+
+AI recommends the most rewarding linked card.
+
+Example:
+
+Swiggy → HDFC Millennia
+
+Amazon → SBI Cashback
+
+Uber → Axis Ace
+
+13. Executive AI Brief
+
+Add a floating button.
+
+Generate Executive Brief
+
+Create a premium one-page report.
+
+Include:
+
+Approval Rate
+
+Failure Rate
+
+Fraud Risk
+
+Revenue Leakage
+
+Merchant Pulse Score
+
+AI should generate:
+
+three key observations
+
+three prioritized recommendations
+
+Allow PDF download.
+
+14. Recruiter Demo Mode
+
+Add a header badge.
+
+Built for Razorpay Builder Challenge
+
+Clicking launches a guided walkthrough.
+
+Steps:
+
+Login
+
+AI Scan
+
+Explore Dashboard
+
+Detect Live Incident
+
+Explain Payment Spike
+
+Simulate Smart Retry
+
+View Credit Card Intelligence
+
+Generate Executive Brief
+
+Entire walkthrough should finish in under two minutes.
+
+15. Premium Polish
+
+Add subtle micro-interactions:
+
+KPI counters animate upward.
+
+Cards lift slightly on hover.
+
+Charts transition smoothly.
+
+AI typing animation.
+
+Loading skeletons.
+
+Soft blue glow on active elements.
+
+Smooth modal animations.
+
+Avoid excessive motion.
+
+Final Requirements
+
+Preserve existing APIs.
+
+Keep FastAPI backend.
+
+Keep Next.js frontend.
+
+Maintain responsiveness.
+
+Keep deployment working.
+
+Use realistic simulated payment data.
+
+Generate AI insights dynamically from the loaded dataset instead of hardcoded text.
+
+The finished application should feel like a believable Razorpay internal product that combines merchant intelligence, explainable AI, payment optimization, fraud prediction, live monitoring, and premium fintech UX.
+
+One extra feature I'd add after this (optional but memorable)
+
+After everything is working, ask Replit to add "Replay Incident"—a 30-second animation where the dashboard starts healthy, UPI failures spike, AI detects the issue, you click Enable Smart Retry, and the metrics recover. It's a simple storytelling feature that makes the demo far more memorable than a static dashboard.

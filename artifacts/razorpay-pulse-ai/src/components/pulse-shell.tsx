@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Bell, BrainCircuit, ChevronRight, CircleHelp, Command, FlaskConical, LayoutDashboard, Menu, Moon, UploadCloud, X } from "lucide-react";
+import { Bell, BrainCircuit, ChevronRight, CircleHelp, CircleDollarSign, Command, FileChartColumnIncreasing, FlaskConical, LayoutDashboard, LogOut, Menu, Moon, UploadCloud, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 const navigation = [
@@ -11,11 +11,17 @@ const navigation = [
 const workspace = [
   { href: "/copilot", label: "Merchant copilot", icon: BrainCircuit },
   { href: "/simulator", label: "Leakage simulator", icon: FlaskConical },
+  { href: "/credit-cards", label: "Credit intelligence", icon: CircleDollarSign },
 ];
 
 export function PulseShell({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [profile, setProfile] = useState<{ name: string; business: string } | null>(() => {
+    try { return JSON.parse(localStorage.getItem("pulse-profile") ?? "null"); } catch { return null; }
+  });
+  const initials = profile?.name.split(" ").map((part) => part[0]).join("").slice(0, 2) ?? "P";
+  const logout = () => { localStorage.removeItem("pulse-profile"); setProfile(null); window.location.reload(); };
   return (
     <div className="pulse-noise min-h-[100dvh] bg-background text-foreground">
       <aside className={`fixed inset-y-0 left-0 z-40 flex w-[250px] flex-col border-r border-sidebar-border bg-sidebar px-4 py-5 transition-transform duration-300 md:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
@@ -25,8 +31,8 @@ export function PulseShell({ children }: { children: ReactNode }) {
               <span className="text-lg font-bold tracking-[-.12em]">rp</span>
             </span>
             <span>
-              <span className="block font-display text-[15px] font-semibold tracking-[-.03em] text-sidebar-foreground">Razorpay <span className="text-primary">Pulse</span></span>
-              <span className="font-mono text-[9px] uppercase tracking-[.18em] text-muted-foreground">payments intelligence</span>
+              <span className="block font-display text-[15px] font-semibold tracking-[-.03em] text-sidebar-foreground">Razorpay <span className="text-primary">Pulse AI</span></span>
+              <span className="font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">financial copilot</span>
             </span>
           </Link>
           <button onClick={() => setMobileOpen(false)} aria-label="Close navigation" data-testid="button-close-nav" className="rounded-md p-1 text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground md:hidden"><X size={17} /></button>
@@ -41,23 +47,28 @@ export function PulseShell({ children }: { children: ReactNode }) {
             </Link>;
           })}
         </nav>
-        <div className="mb-3 mt-8 px-2 font-mono text-[10px] font-medium uppercase tracking-[.18em] text-muted-foreground">Workspace</div>
+          <div className="mb-3 mt-8 px-2 font-mono text-[10px] font-medium uppercase tracking-[.18em] text-muted-foreground">Intelligence</div>
         <nav className="space-y-1">
           {workspace.map(({ href, label, icon: Icon }) => {
             const active = location === href;
             return <Link key={href} href={href} onClick={() => setMobileOpen(false)} data-testid={`link-nav-${label.toLowerCase().replaceAll(" ", "-")}`} className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium ${active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground"}`}><Icon size={16} strokeWidth={active ? 2.2 : 1.7} /><span>{label}</span></Link>;
           })}
         </nav>
+        <div className="mt-8">
+          <Link href="/report" onClick={() => setMobileOpen(false)} data-testid="link-nav-monthly-report" className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium ${location === "/report" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground"}`}>
+            <FileChartColumnIncreasing size={16} strokeWidth={location === "/report" ? 2.2 : 1.7} /><span>Monthly report</span>
+          </Link>
+        </div>
         <div className="mt-auto space-y-3">
           <div className="pulse-grid overflow-hidden rounded-xl border border-sidebar-border bg-sidebar-accent/50 p-3">
             <div className="mb-2 flex items-center gap-2 text-[11px] font-medium text-sidebar-foreground"><span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" /> Live signal</div>
-            <p className="text-[11px] leading-relaxed text-muted-foreground">Monitoring your payment rails across 4 active gateways.</p>
+            <p className="text-[11px] leading-relaxed text-muted-foreground">Your financial signal is private, local-first, and ready to explain.</p>
             <div className="mt-3 flex items-center justify-between font-mono text-[10px] text-primary"><span>ALL SYSTEMS NOMINAL</span><ChevronRight size={13} /></div>
           </div>
           <div className="flex items-center gap-3 rounded-xl border border-sidebar-border bg-sidebar-accent/30 px-3 py-2.5">
             <div className="grid h-8 w-8 place-items-center rounded-full bg-[#ecb86a] text-[11px] font-bold text-[#19211f]">AM</div>
-            <div className="min-w-0"><div className="truncate text-xs font-semibold text-sidebar-foreground">Arjun Mehta</div><div className="truncate text-[10px] text-muted-foreground">Northstar Commerce</div></div>
-            <CircleHelp size={15} className="ml-auto text-muted-foreground" />
+             <div className="min-w-0"><div className="truncate text-xs font-semibold text-sidebar-foreground">{profile?.name ?? "Demo merchant"}</div><div className="truncate text-[10px] text-muted-foreground">{profile?.business ?? "Financial workspace"}</div></div>
+             <button onClick={logout} aria-label="Log out" data-testid="button-logout" className="ml-auto rounded-md p-1 text-muted-foreground hover:bg-sidebar-accent hover:text-foreground"><LogOut size={14} /></button>
           </div>
         </div>
       </aside>
@@ -70,7 +81,7 @@ export function PulseShell({ children }: { children: ReactNode }) {
             <button aria-label="Toggle theme" data-testid="button-toggle-theme" className="hidden rounded-lg p-2 text-muted-foreground hover:bg-secondary hover:text-foreground sm:block"><Moon size={16} /></button>
             <Link href="/alerts" aria-label="View alerts" data-testid="link-header-alerts" className="relative rounded-lg p-2 text-muted-foreground hover:bg-secondary hover:text-foreground"><Bell size={17} /><span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-accent" /></Link>
             <div className="ml-2 hidden h-7 w-px bg-border sm:block" />
-            <div className="ml-1 flex items-center gap-2.5"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#ecb86a] text-[10px] font-bold text-[#19211f]">AM</span><span className="hidden text-xs font-medium text-foreground sm:block">Arjun Mehta</span></div>
+             <div className="ml-1 flex items-center gap-2.5"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#ecb86a] text-[10px] font-bold text-[#19211f]">{initials}</span><span className="hidden text-xs font-medium text-foreground sm:block">{profile?.name ?? "Demo merchant"}</span></div>
           </div>
         </header>
         <div className="px-5 py-7 md:px-9 md:py-9">{children}</div>

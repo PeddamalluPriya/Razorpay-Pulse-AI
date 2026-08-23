@@ -1,0 +1,419 @@
+# Upgrade Existing Project: Razorpay Pulse AI into a Financial Intelligence Copilot
+
+Do NOT rebuild the project from scratch.
+
+Transform the existing Razorpay Pulse AI into a premium fintech AI product while preserving deployment, existing APIs, and current dashboard functionality where possible.
+
+The finished product should feel like something Razorpay could genuinely launch—not a student dashboard.
+
+Use modern UX inspired by Razorpay, PhonePe, Google Pay, and Linear.
+
+---
+
+## Product Identity
+
+Product Name:
+
+# Razorpay Pulse AI
+
+Subtitle:
+
+**Your Financial Intelligence Copilot**
+
+Hero text:
+
+> Import your payment history. Let AI explain where your money went, detect hidden spending patterns, and generate actionable financial insights in seconds.
+
+The design should immediately communicate trust.
+
+Use:
+
+* deep navy background
+* Razorpay blue accents
+* white typography
+* glassmorphism cards
+* soft gradients
+* smooth animations
+
+Avoid flashy colors.
+
+---
+
+# Core User Journey
+
+The experience should feel effortless.
+
+Landing Page
+
+↓
+
+Import Statement
+
+↓
+
+Transaction Feed
+
+↓
+
+AI Analysis
+
+↓
+
+Financial Report
+
+The entire flow should be understandable within two minutes.
+
+---
+
+# Feature 1 — Beautiful Import Experience
+
+This replaces a plain upload screen.
+
+Create four large import cards.
+
+* Import PhonePe Statement
+* Import Google Pay Statement
+* Import Razorpay Merchant CSV
+* Try Demo Data
+
+Important:
+
+Do NOT ask users for credentials or OTP.
+
+Instead, simulate the experience by accepting exported transaction statements or instantly loading realistic demo data.
+
+Add drag-and-drop upload with animated hover effects.
+
+---
+
+# Feature 2 — PhonePe-style Transaction Feed
+
+Instead of showing charts first...
+
+Show a familiar payment history.
+
+Each transaction should have:
+
+* merchant logo placeholder
+* merchant name
+* UPI/card label
+* date
+* amount
+* status
+* category icon
+
+Example merchants:
+
+* Swiggy
+* Zomato
+* Blinkit
+* Uber
+* Amazon
+* Starbucks
+* Salary Credit
+
+The transaction feed should look like a real fintech app.
+
+Allow search and filtering.
+
+---
+
+# Feature 3 — AI Financial Summary (Main Wow Moment)
+
+After importing data, generate a conversational AI summary.
+
+Example:
+
+> You spent ₹18,420 this month.
+
+> Food delivery accounted for 32%.
+
+> Weekend spending was 46% higher than weekdays.
+
+> Your largest recurring expense is subscriptions.
+
+> Estimated monthly savings opportunity: ₹2,300.
+
+The summary should feel written by an intelligent financial assistant—not a template.
+
+Use the existing LLM integration.
+
+---
+
+# Feature 4 — Ask My Money (AI Chat)
+
+Add a floating AI assistant.
+
+Users can ask:
+
+* Where did my salary go?
+* How much did I spend on coffee?
+* Why did this month cost more?
+* Which merchant do I pay most often?
+* How many UPI payments failed?
+
+The assistant should answer using uploaded transaction data.
+
+Include quick suggestion chips.
+
+Responses should feel conversational.
+
+---
+
+# Feature 5 — Smart Merchant Categorization
+
+Automatically classify merchants into:
+
+* Food
+* Shopping
+* Travel
+* Bills
+* Entertainment
+* Investments
+* Healthcare
+* Education
+
+Handle messy transaction names intelligently.
+
+Example:
+
+SWGY123
+
+becomes
+
+Swiggy → Food.
+
+Display confidence for each classification.
+
+---
+
+# Feature 6 — Hidden Pattern Detection
+
+Create an AI Insights section.
+
+Instead of obvious totals, discover hidden behavior.
+
+Examples:
+
+* Food orders after 10 PM increased by 28%.
+* Uber spending doubles on Fridays.
+* Three subscriptions renewed within two days.
+* Shopping spikes occur after salary credits.
+
+Present each insight as a premium insight card.
+
+---
+
+# Feature 7 — Subscription Leak Detector
+
+This should feel like a real fintech feature.
+
+Automatically detect recurring payments.
+
+Examples:
+
+* Netflix
+* Spotify
+* Prime
+* YouTube Premium
+
+Flag:
+
+* duplicate subscriptions
+* forgotten subscriptions
+* price increases
+
+Display:
+
+Estimated yearly savings.
+
+Include a "Review Subscription" button.
+
+---
+
+# Feature 8 — Merchant Pulse Score
+
+Create a signature feature.
+
+Name:
+
+# Pulse Score
+
+Range:
+
+0–100
+
+Calculate using:
+
+* spending consistency
+* failed transactions
+* recurring payments
+* unnecessary spending
+* payment health
+
+Show an animated circular gauge.
+
+Below it display:
+
+"Healthier than 71% of similar spending profiles."
+
+Use simulated benchmarking.
+
+---
+
+# Feature 9 — Explain This Spike
+
+Upgrade charts.
+
+When clicking a spike:
+
+Open an AI explanation panel.
+
+Example:
+
+> Spending increased because Amazon purchases rose by ₹3,400 while Uber expenses increased after weekend travel.
+
+Include:
+
+* root cause
+* confidence
+* recommended action
+
+Animate the side panel.
+
+---
+
+# Feature 10 — Live Financial Timeline
+
+Create a chronological event feed.
+
+Example:
+
+8:42 PM
+
+Salary credited.
+
+9:05 PM
+
+Zomato payment detected.
+
+9:18 PM
+
+Subscription renewed.
+
+9:44 PM
+
+Higher-than-usual food spending observed.
+
+Newest events appear first.
+
+Use elegant icons.
+
+---
+
+# Feature 11 — Executive Monthly Report
+
+Add a prominent button.
+
+Generate Executive Brief.
+
+Create a beautifully formatted report.
+
+Include:
+
+## Payment Overview
+
+* Income
+* Expenses
+* Savings
+* Failed Transactions
+* Pulse Score
+
+## Spending Breakdown
+
+Pie charts.
+
+## AI Insights
+
+Three intelligent observations.
+
+## Recommendations
+
+Three prioritized actions.
+
+Export as PDF.
+
+Make it resemble a professional financial report.
+
+---
+
+# Feature 12 — Demo Mode
+
+Recruiters should never need their own data.
+
+Add:
+
+# Try Demo
+
+Clicking it should:
+
+* load realistic transactions
+* populate every chart
+* generate AI insights
+* activate Pulse Score
+* enable AI chat
+
+The demo should feel polished enough for a recruiter to explore immediately.
+
+---
+
+# Feature 13 — Premium Micro-interactions
+
+Add subtle animations.
+
+* counters count upward
+* cards lift slightly on hover
+* charts animate smoothly
+* loading skeletons
+* AI typing effect
+* glowing active buttons
+
+Keep interactions fast and elegant.
+
+---
+
+# Feature 14 — Builder Challenge Badge
+
+Add a small header badge.
+
+Built for Razorpay Builder Challenge
+
+Clicking it opens a guided walkthrough.
+
+Steps:
+
+1. Import Demo Data
+2. Explore Transactions
+3. View AI Summary
+4. Ask My Money
+5. Detect Hidden Patterns
+6. Generate Executive Report
+
+This walkthrough should finish in under two minutes.
+
+---
+
+# Technical Expectations
+
+Maintain:
+
+* Next.js frontend
+* FastAPI backend
+* responsive design
+* current deployment compatibility
+
+Optimize for desktop first.
+
+All AI insights should be generated from uploaded or demo transaction data rather than hardcoded text.
+
+The final product should feel comparable to a real Razorpay internal prototype with thoughtful UX, explainable AI, and meaningful financial intelligence.

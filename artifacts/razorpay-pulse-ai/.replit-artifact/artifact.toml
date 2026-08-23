@@ -5,6 +5,7 @@ description = "A production-shaped payments intelligence workspace for merchants
 version = "1.0.0"
 id = "artifacts/razorpay-pulse-ai"
 router = "path"
+videoAspectRatio = "16:9"
 
 [[services]]
 name = "web"
